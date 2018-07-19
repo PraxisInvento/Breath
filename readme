@@ -1,0 +1,27 @@
+sudo apt-get install python-smbus
+
+For I2C:
+sudo nano /boot/config.txt
+
+At the end of the file insert:
+dtparam=i2c1_baudrate=50000
+
+sudo apt install i2c-tools libi2c-dev
+
+Remove/comment blacklist of all i2c in .conf below
+/etc/modprobe.d/rasp-blacklist.conf
+#blacklist spi-bcm2708
+#blacklist i2c-bcm2708
+
+
+Add i2c below,
+/etc/modules
+i2c-dev
+i2c-bcm2708
+
+reboot
+
+i2cdetect -y 1
+
+#ADS1115 gas sensor 4 way AFE board analog to I2c
+sudo pip install adafruit-ads1x15
