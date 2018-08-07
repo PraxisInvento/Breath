@@ -118,7 +118,7 @@ def parseGPS(stri):
 		#print("\n Timestamp:  %s -- Lat: %s %s -- Lon: %s %s -- Altitude: %s %s" % (msg.timestamp,msg.lat,msg.lat_dir,msg.lon,msg.lon_dir,msg.altitude,msg.altitude_units))
 		timenow = datetime.combine(date.today(),msg.timestamp) + timedelta(minutes=330) #msg.timestamp
 		global utctime,lat,lon,alt
-		utctime,lat,lon,alt= timenow.strftime('%d,%H:%M'),msg.lat,msg.lon,msg.altitude #timenow.strftime('%H:%m:%S')
+		utctime,lat,lon,alt= timenow.strftime('%H:%M'),msg.lat,msg.lon,msg.altitude #timenow.strftime('%H:%m:%S')
 		
 		return True
 		
